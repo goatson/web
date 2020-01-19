@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>게시판</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="static/css/mystyle.css" rel="stylesheet" />
+</head>
+<body>
+    {% include 'menu.html' %}
+
+
+    <div class="container">
+        <a href="index">홈으로</a> / <a href="boardw">글쓰기</a><br />
+
+        <form action="board" method="get">
+            <div class="form-inline row justify-content-end" style="margin-top:5px; margin-bottom:5px">
+                <select name="type" class="form-control">
+                    <option value="brd_title">제목</option>
+                    <option value="brd_content">내용</option>
+                    <option value="brd_writer">작성자</option>
+                </select>&nbsp;
+                <input type="text" name="text" class="form-control" placeholder="검색어" />&nbsp;
+                <input type="submit" class="btn btn-success" value="검색" />
+            </div>
+        </form>
+
+        <table class="table">
+            <tr>
+                <th>번호</th>
+                <th>제목</th>
+                <th>작성자</th>
+                <th>조회수</th>
+                <th>날짜</th>    
+            </tr>  
+            {% for tmp in key %}
+            <tr>
+                <td>{{ tmp[0] }}</td>
+                <td><a href="boardc?no={{ tmp[0] }}">{{ tmp[1] }} </a></td>
+                <td>{{ tmp[3] }}</td>
+                <td>{{ tmp[4] }}</td>
+                <td>{{ tmp[5] }}</td>    
+            </tr> 
+            {% endfor %}   
+        </table>
+
+        <div class="row justify-content-center">
+            <nav aria-label="Page navigation example">
+                <ul class="pagination">
+                    <li class="page-item"><a class="page-link" href="#">Previous</a></li>
+                    <li class="page-item"><a class="page-link" href="#">1</a></li>
+                    <li class="page-item"><a class="page-link" href="#">2</a></li>
+                    <li class="page-item"><a class="page-link" href="#">3</a></li>
+                    <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                </ul>
+            </nav>
+        </div>
+
+    </div>
+</body>
+</html>

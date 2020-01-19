@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Dataframe</title>
+    <link rel="stylesheet" href="/static/css/bootstrap.min.css" />
+</head>
+<body>
+    <hr>Item</hr>
+    
+    <a href="/shop/itemdataframe_a" class = "btn btn=success">내림차순</a>
+    <a href="/shop/itemdataframe_b" class = "btn btn=success">오름차순</a>
+    <a href="/shop/itemdataframe?order=1" class = "btn btn=succeess">오름차순</a>
+    <a href="/shop/itemdataframe?order=2" class = "btn btn=succeess">내림차순</a>
+
+    {{ key | safe }}
+
+    <table>
+        <tr>
+            <th>NO</th>
+            <th>NAME</th>
+            <th>CONTENT</th>
+            <th>PRICE</th>
+            <th>QTY</th>
+        </tr>
+
+        {% for a in data %}
+        <tr>
+            <td>{{a.itm_no}}</td>
+            <td>{{a.itm_name}}</td>
+            <td>{{a.2}}</td>
+            <td>{{a.3}}</td>
+            <td>{{a.itm_qty}}</td>
+        </tr>
+        {% endfor %}
+
+    </table>
+     
+    
+
+    
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>auth_pw</title>
+</head>
+<body>
+    <form action="/shop/auth_pw" method="post">
+        현재 암호 : <input type="password" name="pw1" />
+        바꿀암호1 : <input type="password" name="pw2" />
+        바꿀암호2 : <input type="password" name="pw3" />
+        <input type="submit" value="암호변경"" />
+    </form>
+    <script src="/static/js/jquery-3.4.1.min.js"></script>
+    <script>
+        $(function(){
+            $('#btn').click(function(){
+                var a = $('#pw1').val()
+                var b = $('#pw2').val()
+                var c = $('#pw3').val()
+                if ( a.length <= 0 ){
+                    alert('현재암호 입력하세요.')
+                    $('#pw1').focus()
+                    return false;
+                }
+                
+                if (b != c){
+                    alert('바꿀암호 틀림.')
+                    $('#pw2').focus();
+                    return false;
+                }
+            })
+        })
+    </script>
+</body>
+</html>

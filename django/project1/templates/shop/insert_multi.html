@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Insert</title>
+</head>
+<body>
+    <form action="/shop/insert_multi" method="POST">
+        {% for i in "x"|rjust:"10" %}
+            {# 주석문 { forloop.counter } #}
+        <input type="text" name='id[]' value="id_{{ forloop.counter }}" /><br />
+        <input type="text" name="na[]" value="a" /><br />
+        <input type="text" name="ag[]" value="12" /><br />
+        {% endfor %}
+        <input type="submit" value="추가" /><br />
+    </form>
+    
+</body>
+</html>

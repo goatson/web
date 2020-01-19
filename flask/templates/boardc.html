@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>게시판내용</title>
+    <link href="static/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="static/css/mystyle.css" rel="stylesheet" />
+</head>
+<body>
+    {% include '\.menu.html'%}
+    <div class="container">
+        
+        <div class="box">            
+            <div class="form-inline" style="margin-top:5px">
+                <label style="width:90px">글번호</label>
+                <label>{{ key[0][0] }}</label>    
+            </div>
+
+            <div class="form-inline" style="margin-top:5px">
+                <label style="width:90px">제목</label>
+                <label>{{ key[0][1] }}</label>
+            </div> 
+
+            <div class="form-inline" style="margin-top:5px">    
+                <label style="width:90px">내용</label>
+                {% autoescape false %}
+                <label>{{ key[0][2] | replace("\n", "<br/>") }}</label>
+                {% endautoescape %}
+            </div>    
+
+            <div class="form-inline" style="margin-top:5px">
+                <label style="width:90px">작성자</label>
+                <label>{{ key[0][3] }}</label>
+            </div>
+
+            <div class="form-inline" style="margin-top:5px">
+                <label style="width:90px">조회수</label>
+                <label>{{ key[0][4] }}</label>
+            </div>
+            
+            <div class="form-inline" style="margin-top:5px">
+                <label style="width:90px">날짜</label>
+                <label>{{ key[0][5] }}</label>
+            </div>
+
+            <div class="form-inline" style="margin-top:5px">
+                <label style="width:90px"></label>
+                <a href="board" class="btn btn-success">글목록으로</a>&nbsp;
+                <a href="boarde?no={{ key[0][0] }}" class="btn btn-success">수정</a>&nbsp;
+                <a href="boardd?no={{ key[0][0] }}" class="btn btn-success">삭제</a>&nbsp;
+
+                {% if key[1][0] !=0 %}  {## 0이 아닌 것만 버튼 나오게???? ##}
+                <a href="boardc?no={{ key[1][0] }}" class="btn btn-success">이전글</a>&nbsp;
+                {% endif %}
+
+                {% if key[2][0] !=0 %}
+                <a href="boardc?no={{ key[2][0] }}" class="btn btn-success">다음글</a>&nbsp;
+                {% endif %}
+            </div>
+        </div>
+        <footer class="pt-4 my-md-5 pt-md-5 border-top">
+                <div class="row">
+                  <div class="col-12 col-md">
+                    <img class="mb-2" src="/docs/4.3/assets/brand/bootstrap-solid.svg" alt="" width="24" height="24">
+                    <small class="d-block mb-3 text-muted">&copy; 2017-2019</small>
+                  </div>
+                  <div class="col-6 col-md">
+                    <h5>Features</h5>
+                    <ul class="list-unstyled text-small">
+                      <li><a class="text-muted" href="#">Cool stuff</a></li>
+                      <li><a class="text-muted" href="#">Random feature</a></li>
+                      <li><a class="text-muted" href="#">Team feature</a></li>
+                      <li><a class="text-muted" href="#">Stuff for developers</a></li>
+                      <li><a class="text-muted" href="#">Another one</a></li>
+                      <li><a class="text-muted" href="#">Last time</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-md">
+                    <h5>Resources</h5>
+                    <ul class="list-unstyled text-small">
+                      <li><a class="text-muted" href="#">Resource</a></li>
+                      <li><a class="text-muted" href="#">Resource name</a></li>
+                      <li><a class="text-muted" href="#">Another resource</a></li>
+                      <li><a class="text-muted" href="#">Final resource</a></li>
+                    </ul>
+                  </div>
+                  <div class="col-6 col-md">
+                    <h5>About</h5>
+                    <ul class="list-unstyled text-small">
+                      <li><a class="text-muted" href="#">Team</a></li>
+                      <li><a class="text-muted" href="#">Locations</a></li>
+                      <li><a class="text-muted" href="#">Privacy</a></li>
+                      <li><a class="text-muted" href="#">Terms</a></li>
+                    </ul>
+                  </div>
+                </div>
+              </footer>     
+    </div>
+</body>
+</html>           
+
